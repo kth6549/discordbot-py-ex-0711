@@ -2,6 +2,7 @@ from cmath import log
 from distutils.sysconfig import PREFIX
 import discord
 from dotenv import load_dotenv
+import random
 import os
 load_dotenv()
 
@@ -24,6 +25,9 @@ async def on_message(message):
 
     if message.content.startswith(f'{PREFIX}hello'):
         await message.channel.send('Hello!')
+
+    if message.content.startswith(f'{PREFIX}random'):
+        await message.channel.send(str(random.randrange(1,100)))
 
 
 try:
